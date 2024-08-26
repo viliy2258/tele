@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram ID Checker</title>
+    <script async src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <h1>Отримати свій Telegram ID</h1>
+
+    <button id="get-id-btn">Отримати ID</button>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('get-id-btn').addEventListener('click', function() {
+            const tg = window.Telegram.WebApp;
+            tg.initDataUnsafe;
+            const user = tg.initDataUnsafe.user;
+
+            if (user) {
+                document.getElementById('result').innerText = `Ваш Telegram ID: ${user.id}`;
+            } else {
+                document.getElementById('result').innerText = 'Не вдалося отримати ваш Telegram ID.';
+            }
+        });
+    </script>
+</body>
+</html>
